@@ -14,6 +14,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.skilldistillery.mlbb.entities.Hero;
+
 class HeroTest {
 
 	private static EntityManagerFactory emf;
@@ -21,7 +23,7 @@ class HeroTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = Persistence.createEntityManagerFactory("JPA-MLBB");
+		emf = Persistence.createEntityManagerFactory("JPAMLBB");
 	}
 
 	@AfterAll
