@@ -17,7 +17,6 @@ public class HeroController {
 	@RequestMapping(path = "/")
 	public String index() {
 		return "index";
-		// return "index"; // if using a ViewResolver.
 	}
 
 	@RequestMapping(path = "getHero.do", method = RequestMethod.GET)
@@ -25,8 +24,6 @@ public class HeroController {
 		ModelAndView mv = new ModelAndView();
 
 		Hero hero = heroDAO.findHeroById(heroid);
-		// film is unmanaged after it is outside of the transaction that exists in the
-		// DAO
 
 		mv.addObject("hero", hero);
 		mv.setViewName("hero/show");

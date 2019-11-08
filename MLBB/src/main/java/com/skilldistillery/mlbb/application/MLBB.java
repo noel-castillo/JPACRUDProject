@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 @EntityScan("com.skilldistillery.jpamlbb")
-public class BootMvcVideoStoreApplication {
+public class MLBB{
 
 	public static void main(String[] args) {
-		SpringApplication.run(BootMvcVideoStoreApplication.class, args);
+		SpringApplication.run(MLBB.class, args);
 	}
 
 }
