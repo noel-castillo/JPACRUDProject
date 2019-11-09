@@ -51,12 +51,21 @@ public class HeroController {
 		mv.setViewName("hero/create");
 		return mv;
 	}
+	
 	@RequestMapping(path = "addNewHero.do", method = RequestMethod.GET)
 	public ModelAndView addNewHero(@Valid Hero hero) {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.addObject("hero", heroDAO.addNewHero(hero));
 		mv.setViewName("hero/show");
+		return mv;
+	}
+	
+	@RequestMapping(path = "deleteHero.do", params="heroId", method = RequestMethod.GET)
+	public ModelAndView deleteHero(int heroId) {
+		ModelAndView mv = new ModelAndView();
+		Hero deletedHero = heroDAO.deleteHero(heroId);
+		mv.setViewName("index");
 		return mv;
 	}
 }

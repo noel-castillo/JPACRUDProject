@@ -12,4 +12,6 @@ public interface HeroDAO {
 
 	Hero addNewHero(Hero hero);
 
+	Hero deleteHero(int heroId);
+
 }

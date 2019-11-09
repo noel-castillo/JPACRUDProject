@@ -13,24 +13,35 @@
 		<c:forEach items="${heroes}" var="hero">
 			<table>
 				<tr>
-					<td><a href="getHero.do?heroId=${hero.id}" class="btTxt submit">${hero.name}</a></td>
+					<td><a href="getHero.do?heroId=${hero.id}"
+						class="btTxt submit">${hero.name}</a></td>
 				</tr>
 			</table>
 
 		</c:forEach>
+		<form action="/" method="GET">
+			<input type="submit" class="btn btn-outline-light"
+				value="Return to Home Page" />
+		</form>
 	</c:if>
-	
+
 	<c:if test="${not empty hero }">
 		<table>
 			<tr>
 				<td>${hero.name}</td>
 			</tr>
 		</table>
+
+		<form action="deleteHero.do" method="GET">
+			<input type="hidden" name="heroId" value="${hero.id }"> <input type="submit"
+				class="btn btn-outline-light" value="Delete Hero" />
+		</form>
+		<form action="/" method="GET">
+			<input type="submit" class="btn btn-outline-light"
+				value="Return to Home Page" />
+		</form>
 	</c:if>
 
-	<form action="/" method="GET">
-		<input type="submit" class="btn btn-outline-light"
-			value="Return to Home Page" />
-	</form>
+
 </body>
 </html>

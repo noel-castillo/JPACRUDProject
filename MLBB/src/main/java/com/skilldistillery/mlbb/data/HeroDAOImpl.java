@@ -50,5 +50,14 @@ public class HeroDAOImpl implements HeroDAO {
 		return hero;
 
 	}
+	
+	@Override
+	public Hero deleteHero(int heroId) {
+		Hero hero = em.find(Hero.class, heroId);
+		em.remove(hero);
+		em.flush();
+
+		return hero;
+	}
 
 }
