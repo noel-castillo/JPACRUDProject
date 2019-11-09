@@ -3,6 +3,7 @@
 	<name>JPAMLBB</name>
 	<comment>Project JPA-MLBB created by Buildship.</comment>
 	<projects>
+		<project>MLBB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

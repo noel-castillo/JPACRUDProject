@@ -6,8 +6,10 @@ import com.skilldistillery.mlbb.entities.Hero;
 
 public interface HeroDAO {
 
-	Hero findHeroById(int heroid);
+	public Hero findHeroById(int heroid);
 
-	List<Hero> findAllHeroes();
+	public List<Hero> findAllHeroes();
+
+	Hero addNewHero(Hero hero);
 
 }

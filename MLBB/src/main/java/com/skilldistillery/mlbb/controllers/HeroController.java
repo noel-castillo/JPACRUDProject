@@ -1,6 +1,9 @@
 package com.skilldistillery.mlbb.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.mlbb.data.HeroDAO;
 import com.skilldistillery.mlbb.entities.Hero;
 
+@Controller
 public class HeroController {
 
 	@Autowired
@@ -20,10 +24,11 @@ public class HeroController {
 	}
 
 	@RequestMapping(path = "getHero.do", method = RequestMethod.GET)
-	public ModelAndView getHero(@RequestParam("heroid") int heroid) {
+	public ModelAndView getHero(@RequestParam("heroId") int heroId) {
 		ModelAndView mv = new ModelAndView();
 
-		Hero hero = heroDAO.findHeroById(heroid);
+		System.out.println(heroId);
+		Hero hero = heroDAO.findHeroById(heroId);
 
 		mv.addObject("hero", hero);
 		mv.setViewName("hero/show");
@@ -35,6 +40,22 @@ public class HeroController {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.addObject("heroes", heroDAO.findAllHeroes());
+		mv.setViewName("hero/show");
+		return mv;
+	}
+	
+	@RequestMapping(path = "goToCreateHero.do", method = RequestMethod.GET)
+	public ModelAndView goToCreateHero(@Valid Hero hero) {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("hero/create");
+		return mv;
+	}
+	@RequestMapping(path = "addNewHero.do", method = RequestMethod.GET)
+	public ModelAndView addNewHero(@Valid Hero hero) {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("hero", heroDAO.addNewHero(hero));
 		mv.setViewName("hero/show");
 		return mv;
 	}

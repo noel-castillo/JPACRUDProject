@@ -14,22 +14,22 @@ import com.skilldistillery.mlbb.entities.Hero;
 @Service
 public class HeroDAOImpl implements HeroDAO {
 
-	
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
-	public Hero findHeroById(int heroid) {
+	public Hero findHeroById(int heroId) {
 
-		Hero hero = em.find(Hero.class, heroid);
+		System.out.println(heroId);
+		Hero hero = em.find(Hero.class, heroId);
 
 		return hero;
-	
+
 	}
-	
+
 	@Override
 	public List<Hero> findAllHeroes() {
-		
+
 		String queryString = "SELECT h FROM Hero h";
 		List<Hero> results = em.createQuery(queryString, Hero.class).getResultList();
 
@@ -39,5 +39,16 @@ public class HeroDAOImpl implements HeroDAO {
 
 		return results;
 	}
-	
+
+	@Override
+	public Hero addNewHero(Hero hero) {
+
+		em.persist(hero);
+
+		em.flush();
+
+		return hero;
+
+	}
+
 }

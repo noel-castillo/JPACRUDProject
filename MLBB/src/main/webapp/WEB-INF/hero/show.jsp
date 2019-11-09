@@ -13,7 +13,7 @@
 		<c:forEach items="${heroes}" var="hero">
 			<table>
 				<tr>
-					<td><a href="getHero.do?heroid=${hero.id}" class="btTxt submit">${hero.name}</a></td>
+					<td><a href="getHero.do?heroId=${hero.id}" class="btTxt submit">${hero.name}</a></td>
 				</tr>
 			</table>
 

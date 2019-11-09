@@ -16,22 +16,30 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css">
-<title>Home page</title>
+<title>Create Hero</title>
 </head>
 <body>
-
-	<form action="getHero.do" method="GET">
-		Hero ID: <input type="number" name="heroId" /> <input type="submit"
-			value="Show Hero" />
-	</form>
-
-	<form action="getAllHeroes.do" method="GET">
-		<input type="submit" value="Show All Heroes" />
-	</form>
-	
-	<form action="goToCreateHero.do" method="GET">
-		<input type="submit" value="Create New Hero" />
-	</form>
-
+	<div class="container">
+		<div id="banner" class="jumbotron text-center">
+			<h1>Hero Creation</h1>
+		</div>
+	</div>
+	<form:form action="addNewHero.do" method="GET" modelAttribute="hero">
+		<form:label path="name">Name: </form:label>
+		<form:input path="name" required="required"/>
+		<form:errors path="name" />
+		<br />
+		<form:label path="health">Health Points:</form:label>
+		<form:input path="health" type="number" required="required"/>
+		<form:errors path="health" />
+		<br />
+		<form:label path="mana">Mana Points:</form:label>
+		<form:input path="mana" type="number" required="required"/>
+		<form:errors path="mana" />
+		<br />
+		<div class="container">
+		<input type="submit" id = "createHero"  class="btn btn-outline-light" value="Create Hero" />
+		</div>
+	</form:form>
 </body>
 </html>
