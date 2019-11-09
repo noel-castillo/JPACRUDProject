@@ -30,11 +30,21 @@
 			<tr>
 				<td>${hero.name}</td>
 			</tr>
+			<tr>
+				<td>HP: ${hero.health}</td>
+			</tr>
+			<tr>
+				<td>MP: ${hero.mana}</td>
+			</tr>
 		</table>
 
 		<form action="deleteHero.do" method="GET">
 			<input type="hidden" name="heroId" value="${hero.id }"> <input type="submit"
 				class="btn btn-outline-light" value="Delete Hero" />
+		</form>
+		<form action="goToUpdateHero.do" method="GET">
+			<input type="hidden" name="heroId" value="${hero.id }"> <input type="submit"
+				class="btn btn-outline-light" value="Update Hero" />
 		</form>
 		<form action="/" method="GET">
 			<input type="submit" class="btn btn-outline-light"

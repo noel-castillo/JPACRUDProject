@@ -59,5 +59,22 @@ public class HeroDAOImpl implements HeroDAO {
 
 		return hero;
 	}
+	
+	@Override
+	public Hero updateHero(Hero hero, int heroId) {
+
+
+		Hero updatedHero = em.find(Hero.class, heroId);
+
+			updatedHero.setName(hero.getName());
+			updatedHero.setHealth(hero.getHealth());
+			updatedHero.setMana(hero.getMana());
+			updatedHero.setBackstory(hero.getBackstory());
+			updatedHero.setImage(hero.getImage());
+
+		em.flush();
+
+		return updatedHero;
+	}
 
 }
