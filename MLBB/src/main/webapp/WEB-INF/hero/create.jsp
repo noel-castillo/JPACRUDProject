@@ -17,6 +17,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <title>Create Hero</title>
+<%@include file="/WEB-INF/nav.jsp" %>
 </head>
 <body>
 	<div class="container">

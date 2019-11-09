@@ -5,8 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
 <meta charset="UTF-8">
 <title>Search Results</title>
+<%@include file="/WEB-INF/nav.jsp"%>
 </head>
 <body>
 	<c:if test="${not empty heroes }">
