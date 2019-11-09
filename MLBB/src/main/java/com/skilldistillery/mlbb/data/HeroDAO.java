@@ -1,5 +1,8 @@
 package com.skilldistillery.mlbb.data;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.skilldistillery.mlbb.entities.Hero;
@@ -15,5 +18,7 @@ public interface HeroDAO {
 	Hero deleteHero(int heroId);
 
 	Hero updateHero(Hero hero, int heroId);
+
+	public Hero addAnImage(File image, int heroId) throws SQLException, FileNotFoundException;
 
 }

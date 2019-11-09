@@ -2,6 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@page import="com.sun.xml.internal.bind.CycleRecoverable.Context"%>
+<%@page import="java.io.InputStream"%>
+<%@page import="java.io.FileInputStream"%>
+<%@page import="java.io.File"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +46,10 @@
 		<form:input path="mana" type="number" required="required"/>
 		<form:errors path="mana" />
 		<br />
+		<form:label path="backstory">Backstory: </form:label>
+		<form:input path="backstory" type="text"/>
+		<form:errors path="backstory"/>
+		<br>
 		<div class="container">
 		<input type="submit" id = "createHero"  class="btn btn-outline-light" value="Create Hero" />
 		</div>

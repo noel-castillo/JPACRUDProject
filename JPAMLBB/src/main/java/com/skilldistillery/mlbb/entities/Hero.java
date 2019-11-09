@@ -1,6 +1,6 @@
 package com.skilldistillery.mlbb.entities;
 
-import java.sql.Blob;
+import java.io.File;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +23,7 @@ public class Hero {
 	
 	private String backstory;
 	
-	private Blob image;
+	private File image;
 
 	public Hero() {
 		super();
@@ -76,11 +76,11 @@ public class Hero {
 		this.backstory = backstory;
 	}
 
-	public Blob getImage() {
+	public File getImage() {
 		return image;
 	}
 
-	public void setImage(Blob image) {
+	public void setImage(File image) {
 		this.image = image;
 	}
 

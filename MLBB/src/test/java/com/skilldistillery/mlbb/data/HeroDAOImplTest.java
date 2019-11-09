@@ -14,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.skilldistillery.mlbb.entities.Hero;
 
-@SpringBootTest
 class HeroDAOImplTest {
 
 	private HeroDAO tester = new HeroDAOImpl();

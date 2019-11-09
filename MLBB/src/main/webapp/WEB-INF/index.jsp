@@ -24,12 +24,7 @@
 			<div class="card">
 				<form action="getHero.do" method="GET">
 					Hero ID: <input type="number" name="heroId" /> <input
-						type="submit" value="Show Hero" />
-				</form>
-			</div>
-			<div class="card">
-				<form action="getAllHeroes.do" method="GET">
-					<input type="submit" value="Show All Heroes" />
+						type="submit" value="Find Hero" />
 				</form>
 			</div>
 			<div class="card">

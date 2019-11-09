@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page import="java.io.InputStream"%>
+<%@page import="java.io.FileInputStream"%>
+<%@page import="java.io.File"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
@@ -39,6 +45,14 @@
 		<form:label path="mana">Mana Points:</form:label>
 		<form:input path="mana" type="number" required="required" default="${oldHero.mana }" placeholder="${oldHero.mana}" value="${oldHero.mana}"/>
 		<form:errors path="mana" />
+		<br>
+		<form:label path="backstory">Backstory</form:label>
+		<form:input path="backstory" type="text" required="required" default="${oldHero.backstory }" placeholder="${oldHero.backstory}" value="${oldHero.backstory}"/>
+		<form:errors path="backstory" />
+		<br>
+		<form:label path="image">Image:</form:label>
+		<form:input path="image" type="file" placeholder="images/${oldHero.image}" value="${oldHero.image}"/>
+		<form:errors path="image" />
 		<br />
 		<div class="container">
 		<input type="hidden" name="heroId" value="${oldHero.id }">

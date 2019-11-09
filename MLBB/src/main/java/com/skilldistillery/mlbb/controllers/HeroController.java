@@ -1,5 +1,14 @@
 package com.skilldistillery.mlbb.controllers;
 
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.SQLException;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +64,6 @@ public class HeroController {
 	@RequestMapping(path = "addNewHero.do", method = RequestMethod.GET)
 	public ModelAndView addNewHero(@Valid Hero hero) {
 		ModelAndView mv = new ModelAndView();
-
 		mv.addObject("hero", heroDAO.addNewHero(hero));
 		mv.setViewName("hero/show");
 		return mv;
@@ -83,6 +91,16 @@ public class HeroController {
 		Hero updatedHero = heroDAO.updateHero(hero, heroId);
 		mv.addObject("hero", updatedHero);
 		mv.setViewName("hero/show");
+		return mv;
+	}
+	
+	@RequestMapping(path="addAnImage.do", params= {"image", "heroId"}, method=RequestMethod.GET)
+	public ModelAndView addAnImage(File image, int heroId) throws SQLException, FileNotFoundException {
+		ModelAndView mv = new ModelAndView();
+		Hero updatedHero = heroDAO.addAnImage(image, heroId);
+		mv.addObject("hero", updatedHero);
+		mv.setViewName("hero/show");
+		
 		return mv;
 	}
 }

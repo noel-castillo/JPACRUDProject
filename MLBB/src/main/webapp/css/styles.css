@@ -1,10 +1,15 @@
 @charset "UTF-8";
 
-body{
+.resultsSingle{
 	color: #29c2d4;
-	margin-top: 250px;
-	text-align: center;
-	font-size: 85px;
+	font-size: 40px;
+	font-family: Fantasy;
+	text-shadow: 3px 3px black;
+}
+
+.resultsSingle{
+	color: #29c2d4;
+	font-size: 20px;
 	font-family: Fantasy;
 	text-shadow: 3px 3px black;
 }
@@ -63,7 +68,7 @@ body{
 	justify-content: space-between;
 } */
 
-.card:hover {
+.card:hover:toggle {
 	text-decoration: none;
 	color: #000;
 	flex: 0 1 55%;
@@ -71,3 +76,4 @@ body{
 	padding: 5px 10px 5px 10px;
 	border-radius: 5px;
 }
+

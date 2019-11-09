@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 }
 
+
 group = 'com.skilldistillery.mlbb'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -24,9 +25,12 @@ dependencies {
 	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '8.5.23'
 	
 	compile project(':JPAMLBB')
+	compile ('commons-fileupload:commons-fileupload:1.4')
+	testCompile('junit:junit:4.11')
 	}
 }
 
 test {
 	useJUnitPlatform()
 }
+
