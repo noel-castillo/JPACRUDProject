@@ -129,4 +129,33 @@ public class HeroDAOImpl implements HeroDAO {
 		return updatedHero;
 
 	}
+
+	@Override
+	public Hero addAnImage(byte[] image, int heroId) {
+		Hero updatedHero = em.find(Hero.class, heroId);
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, user, password);
+			System.out.println("Connection established......");
+			PreparedStatement pstmt = conn.prepareStatement("UPDATE Hero SET image=? WHERE id = ?");
+			pstmt.setBytes(1, image);
+			pstmt.setInt(2, heroId);
+			// Executing the statement
+			int updateCount = pstmt.executeUpdate();
+			System.out.println("Record inserted......");
+			conn.commit();
+
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+			if (conn != null) {
+				try {
+					conn.rollback();
+				} catch (SQLException sqle2) {
+					System.err.println("Error trying to rollback");
+				}
+			}
+			return updatedHero;
+		}
+		return updatedHero;
+	}
 }

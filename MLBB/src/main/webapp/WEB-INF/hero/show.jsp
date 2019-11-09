@@ -1,10 +1,3 @@
-<%@page import="java.io.InputStream"%>
-<%@page import="java.io.FileInputStream"%>
-<%@page import="java.io.File"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -61,11 +54,11 @@
 				<td>${hero.image}</td>
 			</tr>
 		</table>
-		<form action="fileUpload.do" method="GET">
+	<%-- 	<form action="addAnImage.do" method="GET">
 		<input type="file" name="image" value="Image"/>
 		<input type="hidden" name="heroId" value="${hero.image}">
 		<input type="submit" class="btn btn-outline-light" value="Add Image">
-		</form>
+		</form> --%>
 		<form action="deleteHero.do" method="GET">
 			<input type="hidden" name="heroId" value="${hero.id }"> <input type="submit"
 				class="btn btn-outline-light" value="Delete Hero" />

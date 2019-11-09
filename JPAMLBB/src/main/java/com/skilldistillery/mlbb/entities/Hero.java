@@ -1,7 +1,5 @@
 package com.skilldistillery.mlbb.entities;
 
-import java.io.File;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +21,7 @@ public class Hero {
 	
 	private String backstory;
 	
-	private File image;
+	private byte[] image;
 
 	public Hero() {
 		super();
@@ -76,11 +74,11 @@ public class Hero {
 		this.backstory = backstory;
 	}
 
-	public File getImage() {
+	public byte[] getImage() {
 		return image;
 	}
 
-	public void setImage(File image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 

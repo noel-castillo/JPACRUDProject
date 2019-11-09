@@ -15,8 +15,8 @@
 	<ul>
 		<li><a href="/" class="nav-button">Home</a></li>
 		<li><a href="getAllHeroes.do" class="nav-button">Heroes</a></li>
-		<li><a href="register.do" class="nav-button">Register</a></li>
-		<li><a href="contact.do" class="nav-button">Contact</a></li>
+		<!-- <li><a href="register.do" class="nav-button">Register</a></li>
+		<li><a href="contact.do" class="nav-button">Contact</a></li> -->
 	</ul>
 </nav>
 </html>

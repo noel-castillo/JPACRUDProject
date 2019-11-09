@@ -21,4 +21,6 @@ public interface HeroDAO {
 
 	public Hero addAnImage(File image, int heroId) throws SQLException, FileNotFoundException;
 
+	public Hero addAnImage(byte[] image, int heroId);
+
 }
