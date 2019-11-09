@@ -1,37 +1,53 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<nav class="navbar">
+
+	<ul class="main-nav" class="d-inline-block align-top">
+		<li><a href="index.html" class="nav-links">Home</a></li>
+		<li><a href="login.do" class="nav-links">Login</a></li>
+		<li><a href="register.do" class="nav-links">Register</a></li>
+		<li><a href="contact.do" class="nav-links">Contact</a></li>
+	</ul>
+</nav>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-	crossorigin="anonymous">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<title>Home page</title>
+<title>Home Page</title>
 </head>
 <body>
+	<div class="header">MLBB Guide</div>
+	<div class="subheader"></div>
 
-	<form action="getHero.do" method="GET">
-		Hero ID: <input type="number" name="heroId" /> <input type="submit"
-			value="Show Hero" />
-	</form>
+<div class="centered">
+<section class="cards">
+	<div class="card">
+		<input type="image" src="images/fallout-new-vegas.jpeg" class="btTxt submit" alt="..."
+		width = 425; height = 630;/>
+		<a href="getHero.do" class="btn btn-warning">Hero ID Search</a>
+	</div>
+	<div class="card">
+		<input type="image" src="images/legend-of-the-seven-stars.jpeg" class="btTxt submit" alt="..."
+		width = 425; height = 630;/>
+		<a href="getAllHero.do" class="btn btn-warning">All Heroes List</a>
+	</div>
+  <div class="card">
+    <input type="image" src="images/skyrim.jpeg" class="btTxt submit" alt="..."
+		width = 425; height = 630;/>
+	</div>
+	<div class="card">
+		<input type="image" src="images/the-outer-worlds.jpeg" class="btTxt submit" alt="..."
+		width = 425; height = 630;/>
+		<a href="goToCreateHero.do" class="btn btn-warning">Create a Hero</a>
 
-	<form action="getAllHeroes.do" method="GET">
-		<input type="submit" value="Show All Heroes" />
-	</form>
-	
-	<form action="goToCreateHero.do" method="GET">
-		<input type="submit" value="Create New Hero" />
-	</form>
+</section>
+</div>
+
 
 </body>
 </html>
