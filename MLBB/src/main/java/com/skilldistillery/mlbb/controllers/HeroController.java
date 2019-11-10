@@ -4,16 +4,16 @@ package com.skilldistillery.mlbb.controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.mlbb.data.HeroDAO;
 import com.skilldistillery.mlbb.entities.Hero;
 
-@RestController
+@Controller
 public class HeroController {
 
 	@Autowired
@@ -32,7 +32,7 @@ public class HeroController {
 		Hero hero = heroDAO.findHeroById(heroId);
 
 		mv.addObject("hero", hero);
-		mv.setViewName("hero/show");
+		mv.setViewName("hero/result");
 		return mv;
 	}
 
@@ -41,7 +41,7 @@ public class HeroController {
 		ModelAndView mv = new ModelAndView();
 
 		mv.addObject("heroes", heroDAO.findAllHeroes());
-		mv.setViewName("hero/show");
+		mv.setViewName("hero/result");
 		return mv;
 	}
 
@@ -57,14 +57,14 @@ public class HeroController {
 	public ModelAndView addNewHero(@Valid Hero hero) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("hero", heroDAO.addNewHero(hero));
-		mv.setViewName("hero/show");
+		mv.setViewName("hero/result");
 		return mv;
 	}
 
 	@RequestMapping(path = "deleteHero.do", params = "heroId", method = RequestMethod.GET)
 	public ModelAndView deleteHero(int heroId) {
 		ModelAndView mv = new ModelAndView();
-		Hero deletedHero = heroDAO.deleteHero(heroId);
+		heroDAO.deleteHero(heroId);
 		mv.setViewName("index");
 		return mv;
 	}
@@ -82,17 +82,17 @@ public class HeroController {
 		ModelAndView mv = new ModelAndView();
 		Hero updatedHero = heroDAO.updateHero(hero, heroId);
 		mv.addObject("hero", updatedHero);
-		mv.setViewName("hero/show");
+		mv.setViewName("hero/result");
 		return mv;
 	}
 	
-	@RequestMapping(path="addAnImage.do", params= {"image", "heroId"}, method=RequestMethod.GET)
-	public ModelAndView addAnImage(byte[] image, int heroId){
-		ModelAndView mv = new ModelAndView();
-		Hero updatedHero = heroDAO.addAnImage(image, heroId);
-		mv.addObject("hero", updatedHero);
-		mv.setViewName("hero/show");
-		
-		return mv;
-	}
+//	@RequestMapping(path="addAnImage.do", params= {"image", "heroId"}, method=RequestMethod.GET)
+//	public ModelAndView addAnImage(byte[] image, int heroId){
+//		ModelAndView mv = new ModelAndView();
+//		Hero updatedHero = heroDAO.addAnImage(image, heroId);
+//		mv.addObject("hero", updatedHero);
+//		mv.setViewName("hero/show");
+//		
+//		return mv;
+//	}
 }
