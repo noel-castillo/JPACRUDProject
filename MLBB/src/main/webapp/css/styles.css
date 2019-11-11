@@ -1,13 +1,24 @@
 @charset "UTF-8";
 
-.resultsSingle{
-	color: #29c2d4;
+body{
+	background-color: #28637f78 !important;
+
+	background-repeat: no-repeat;
+	color: #29c2d4; !important;
+}
+
+td{
+	color: #29c2d4; !important;
+}
+
+.resultsSingle {
+	color: #29c2d4; !important;
 	font-size: 40px;
 	font-family: Fantasy;
 	text-shadow: 3px 3px black;
 }
 
-.allHeroesResults{
+.allHeroesResults {
 	color: #29c2d4;
 	font-size: 20px;
 	font-family: Fantasy;
@@ -26,7 +37,7 @@
 .subheader {
 	color: #29c2d4;
 	text-align: center;
-	font-size: 50px;
+	font-size: 30px;
 	font-family: Fantasy;
 	margin-top: 10px;
 	margin-bottom: 150px;
@@ -38,8 +49,8 @@
 	padding-bottom: 10px;
 	background-color: transparent;
 	position: fixed;
-	top: 0; 
-	width: 100%; 
+	top: 0;
+	width: 100%;
 	list-style-type: none;
 	display: none;
 }
@@ -58,15 +69,28 @@
 .nav-button:hover:toggle {
 	text-decoration: none;
 	color: #000;
+	font-family: Fantasy;
 	background-color: #29c2d4;
 	border-radius: 2px;
 }
+.subheader-button {
+	text-decoration: none;
+	color: #fff;
+	font-family: Fantasy;
+}
 
-/* .cards {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-} */
+.subheader li {
+	text-align: center;
+	display: inline;
+}
+
+.subheader-button:hover:toggle {
+	text-decoration: none;
+	color: #000;
+	font-family: Fantasy;
+	background-color: #29c2d4;
+	border-radius: 2px;
+}
 
 .card:hover:toggle {
 	text-decoration: none;
@@ -76,4 +100,3 @@
 	padding: 5px 10px 5px 10px;
 	border-radius: 5px;
 }
-

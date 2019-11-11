@@ -1,5 +1,6 @@
 package com.skilldistillery.mlbb.controllers;
 
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -39,8 +40,8 @@ public class HeroController {
 	@RequestMapping(path = "getAllHeroes.do", method = RequestMethod.GET)
 	public ModelAndView getAllHeroes() {
 		ModelAndView mv = new ModelAndView();
-
-		mv.addObject("heroes", heroDAO.findAllHeroes());
+		List<Hero> heroes = heroDAO.findAllHeroes();
+		mv.addObject("heroes", heroes);
 		mv.setViewName("hero/result");
 		return mv;
 	}
@@ -85,7 +86,20 @@ public class HeroController {
 		mv.setViewName("hero/result");
 		return mv;
 	}
-	
+
+	@RequestMapping(path = "keywordSearch.do", params = "keyword", method = RequestMethod.GET)
+	public ModelAndView updateHero(String keyword) {
+		ModelAndView mv = new ModelAndView();
+		List<Hero> heroes = heroDAO.findHeroByKeyword(keyword);
+		if (heroes.size() == 0) {
+			mv.addObject("nothing", "No results found");
+		} else {
+		mv.addObject("heroes", heroes);
+		}
+		mv.setViewName("hero/result");
+		return mv;
+	}
+
 //	@RequestMapping(path="addAnImage.do", params= {"image", "heroId"}, method=RequestMethod.GET)
 //	public ModelAndView addAnImage(byte[] image, int heroId){
 //		ModelAndView mv = new ModelAndView();

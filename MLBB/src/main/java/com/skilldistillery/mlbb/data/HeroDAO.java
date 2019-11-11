@@ -16,6 +16,8 @@ public interface HeroDAO {
 
 	Hero updateHero(Hero hero, int heroId);
 
+	List<Hero> findHeroByKeyword(String keyword);
+
 //	public Hero addAnImage(File image, int heroId) throws SQLException, FileNotFoundException;
 
 //	public Hero addAnImage(byte[] image, int heroId);

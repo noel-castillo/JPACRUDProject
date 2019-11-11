@@ -33,11 +33,21 @@ public class HeroDAOImpl implements HeroDAO {
 
 	@Override
 	public Hero findHeroById(int heroId) {
-
+		
 		System.out.println(heroId);
 		Hero hero = em.find(Hero.class, heroId);
-
+		
 		return hero;
+		
+	}
+	
+	@Override
+	public List<Hero> findHeroByKeyword(String keyword) {
+
+		String queryString = "SELECT h FROM Hero h WHERE h.name LIKE :keyword OR h.title LIKE :keyword ORDER BY h.name";
+		List<Hero> results = em.createQuery(queryString, Hero.class).setParameter("keyword", "%" + keyword + "%").getResultList();
+
+		return results;
 
 	}
 
@@ -45,7 +55,7 @@ public class HeroDAOImpl implements HeroDAO {
 	public List<Hero> findAllHeroes() {
 
 		
-		String queryString = "SELECT h FROM Hero h";
+		String queryString = "SELECT h FROM Hero h ORDER BY h.name";
 		List<Hero> results = em.createQuery(queryString, Hero.class).getResultList();
 
 		for (Hero element : results) {

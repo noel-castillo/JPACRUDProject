@@ -24,26 +24,31 @@
 	<div class="container">
 
 		<!-- ALL HEROES -->
-		<c:if test="${not empty heroes }">
-		<div class="allHeroesResults"  style="margin-top: 15px">
-		<c:forEach items="${heroes}" var="hero">
-			<table>
-				<tr>
-					<td><a href="getHero.do?heroId=${hero.id}"
-						class="btTxt submit"><strong>${hero.name}</strong></a></td>
-				</tr>
-			</table>
-
-		</c:forEach>
-		<form action="/" method="GET">
-			<input type="submit" class="btn btn-outline-light"
-				value="Return to Home Page" />
-		</form>
+		<div class="resultsSingle" style="margin-top: 15px">
+			<h1>
+				<strong>${nothing }</strong>
+			</h1>
 		</div>
-	</c:if>
-	<!-- SINGLE HEROES -->
+		<c:if test="${not empty heroes }">
+			<div class="resultsSingle" style="margin-top: 15px">
+				<c:forEach items="${heroes}" var="hero">
+					<table>
+						<tr>
+							<td><a href="getHero.do?heroId=${hero.id}"
+								class="btTxt submit"><strong>${hero.name}</strong></a></td>
+						</tr>
+					</table>
+
+				</c:forEach>
+				<form action="/" method="GET">
+					<input type="submit" class="btn btn-outline-light"
+						value="Return to Home Page" />
+				</form>
+			</div>
+		</c:if>
+		<!-- SINGLE HEROES -->
 		<c:if test="${not empty hero }">
-			<div class="singleResults" style="margin-top: 15px">
+			<div class="resultsSingle" style="margin-top: 15px">
 				<div class="col-sm">
 					<h1>
 						<strong><a href="getHero.do?heroId=${hero.id}"
@@ -52,27 +57,24 @@
 					<h2>${hero.title}</h2>
 				</div>
 				<div class="container cont__style" style="margin-top: 15px">
-					<div class="style__box shadow-lg">
-						<strong>Role:</strong><br>
-						<c:forEach items="${hero.roles}" var="role">
-							<span class="badge badge-secondary" style="margin-bottom: 10px"> ${role} </span>
-						</c:forEach>
-					</div>
+					<strong>Role:</strong><br>
+					<c:forEach items="${hero.roles}" var="role">
+						<span class="badge badge-secondary" style="margin-bottom: 10px">
+							${role} </span>
+					</c:forEach>
+					<br> <strong>Specialties:</strong><br>
+					<c:forEach items="${hero.specialties}" var="specialty">
+						<span class="badge badge-secondary" style="margin-bottom: 10px">
+							${specialty} </span>
+					</c:forEach>
 
-					<div class="style__box shadow-lg">
-						<strong>Specialties:</strong><br>
-						<c:forEach items="${hero.specialties}" var="specialty">
-							<span class="badge badge-secondary" style="margin-bottom: 10px"> ${specialty} </span>
-						</c:forEach>
-					</div>
-
-					<div class="style__box shadow-lg" style="margin-bottom: 20px">
+					<div style="margin-bottom: 20px">
 						<strong>Last Update:</strong><br> <span
 							class="badge badge-info"> ${hero.lastUpdate} </span>
 					</div>
 				</div>
 
-				<div class="col-sm">
+				<div class="resultsSingle">
 					<table class="table">
 						<tr>
 							<td>Health</td>
@@ -123,24 +125,22 @@
 							<td>${hero.abilityCritRate}</td>
 						</tr>
 					</table>
-					
+
 					<h4>${hero.backstory }</h4>
 				</div>
-			</div>
-
-	<form action="deleteHero.do" method="GET">
-		<input type="hidden" name="heroId" value="${hero.id }"> <input
-			type="submit" class="btn btn-outline-light" value="Delete Hero" />
-	</form>
-	<form action="goToUpdateHero.do" method="GET">
-		<input type="hidden" name="heroId" value="${hero.id }"> <input
-			type="submit" class="btn btn-outline-light" value="Update Hero" />
-	</form>
-	<form action="/" method="GET">
-		<input type="submit" class="btn btn-outline-light"
-			value="Return to Home Page" />
-	</form>
-	</c:if>
-
+				<div class=resultsSingle"></div>
+				<form action="deleteHero.do" method="GET">
+					<input type="hidden" name="heroId" value="${hero.id }"> <input
+						type="submit" class="btn btn-outline-light" value="Delete Hero" />
+				</form>
+				<form action="goToUpdateHero.do" method="GET">
+					<input type="hidden" name="heroId" value="${hero.id }"> <input
+						type="submit" class="btn btn-outline-light" value="Update Hero" />
+				</form>
+				<form action="/" method="GET">
+					<input type="submit" class="btn btn-outline-light"
+						value="Return to Home Page" />
+				</form>
+		</c:if>
 </body>
 </html>
